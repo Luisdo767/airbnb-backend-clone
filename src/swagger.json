@@ -1,0 +1,448 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "Api Rest Clon de Airbnb",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/v1/users" : {
+            "get": {
+                "description": "Obtener todos mis usuarios si eres administrador",
+                "tags": ["Users", "v1"],
+                "responses": {
+                    "200": {
+                        "description": "Obtenemos exitosamente todos los usuarios"
+                    },
+                    "400": {
+                        "description": "Generamos un error en caso de que la peticion no se resulva"
+                    }
+                }
+            }
+        },
+        "/api/v1/users/{id}": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID del usuario",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "description": "Obtener un usuario",
+                "tags": ["Users", "v1"],
+                "responses": {
+                    "200": {
+                        "description": "Obtenemos exitosamente el usuario si eres un host"
+                    },
+                    "400": {
+                        "description": "Generamos un error en caso de que la peticion no se resulva"
+                    }
+                }
+            },
+            "delete": {
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID del usuario",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "description": "Elimina un usuario en especifico si eres administrador",
+                "tags": ["Users", "v1"],
+                "responses": {
+                    "200": {
+                        "description": "Eliminamos exitosamente el usuario"
+                    },
+                    "400": {
+                        "description": "Generamos un error en caso de que la peticion no se resulva"
+                    }
+                }
+            },
+            "put": {
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID del usuario",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "description": "Edita la iformacion de un usuario en especifico si eres administrador",
+                "tags": ["Users", "v1"],
+                "responses": {
+                    "200": {
+                        "description": "Editamos exitosamente el usuario"
+                    },
+                    "400": {
+                        "description": "Generamos un error en caso de que la peticion no se resulva"
+                    }
+                }
+            }
+        },
+        "/api/v1/users/me": {
+            "get": {
+                "description": "Obtener el usuario de la persona logueada",
+                "tags": ["Users", "v1"],
+                "responses": {
+                    "200": {
+                        "description": "Obtenemos exitosamente el usuario de la persona logueada"
+                    },
+                    "400": {
+                        "description": "Generamos un error en caso de que la peticion no se resulva"
+                    }
+                }
+            },
+            "delete": {
+                "description": "Elimina el usuario de la persona logueada",
+                "tags": ["Users", "v1"],
+                "responses": {
+                    "200": {
+                        "description": "Eliminamos exitosamente el usuario"
+                    },
+                    "400": {
+                        "description": "Generamos un error en caso de que la peticion no se resulva"
+                    }
+                }
+            },
+            "put": {
+                "description": "Edita la iformacion del usuario logueado",
+                "tags": ["Users", "v1"],
+                "responses": {
+                    "200": {
+                        "description": "Editamos exitosamente el usuario"
+                    },
+                    "400": {
+                        "description": "Generamos un error en caso de que la peticion no se resulva"
+                    }
+                }
+            }
+        },
+        "/api/v1/users/me/profile-img": {
+            "post": {
+                "description": "Subir la imagen de perfil del usuario logueado",
+                "tags": ["Users", "v1"],
+                "responses": {
+                    "200": {
+                        "description": "Subimos exitosamente la imagen de perfil del usuario logueado"
+                    },
+                    "400": {
+                        "description": "Generamos un error en caso de que la peticion no se resulva"
+                    }
+                }
+            }
+        },
+        "/api/v1/accommodations": {
+            "get": {
+                "description": "Obtener todos los lugares",
+                "tags": ["accommodation", "v1"],
+                "responses": {
+                    "200": {
+                        "description": "Obtenemos exitosamente todos los lugares"
+                    },
+                    "400": {
+                        "description": "Generamos un error en caso de que la peticion no se resulva"
+                    }
+                }
+            }
+        },
+        "/api/v1/accommodations/{id}": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID del lugar",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "description": "Obtener un lugar",
+                "tags": ["accommodation", "v1"],
+                "responses": {
+                    "200": {
+                        "description": "Obtenemos exitosamente un lugar"
+                    },
+                    "400": {
+                        "description": "Generamos un error en caso de que la peticion no se resulva"
+                    }
+                }
+            }
+        },
+        "/api/v1/accommodations/my-accommodations/{hostId}": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "hostId",
+                        "in": "path",
+                        "description": "ID del usuario host",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "description": "Obtener los lugares del usuario host especifico",
+                "tags": ["accommodation", "v1"],
+                "responses": {
+                    "200": {
+                        "description": "Obtenemos exitosamente los lugares del usuario host"
+                    },
+                    "400": {
+                        "description": "Generamos un error en caso de que la peticion no se resulva"
+                    }
+                }
+            },
+            "post": {
+                "parameters": [
+                    {
+                        "name": "hostId",
+                        "in": "path",
+                        "description": "ID del usuario host",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "description": "Creamos un nuevo lugar asociado al usuario host",
+                "tags": ["accommodation", "v1"],
+                "responses": {
+                    "200": {
+                        "description": "Obtenemos exitosamente los lugares del usuario host"
+                    },
+                    "400": {
+                        "description": "Generamos un error en caso de que la peticion no se resulva"
+                    }
+                }
+            }
+        },
+        "/api/v1/accommodations/my-accommodations/{hostId}/del-put/{accommodationId}/": {
+            "delete": {
+                "parameters": [
+                    {
+                        "name": "hostId",
+                        "in": "path",
+                        "description": "ID del usuario host",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "accommodationId",
+                        "in": "path",
+                        "description": "ID del lugar",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "description": "Eliminamos el lugar del usuario host especifico",
+                "tags": ["accommodation", "v1"],
+                "responses": {
+                    "200": {
+                        "description": "Eliminamos exitosamente el lugar del usuario host especifico"
+                    },
+                    "400": {
+                        "description": "Generamos un error en caso de que la peticion no se resulva"
+                    }
+                }
+            },
+            "put": {
+                "parameters": [
+                    {
+                        "name": "hostId",
+                        "in": "path",
+                        "description": "ID del usuario host",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "accommodationId",
+                        "in": "path",
+                        "description": "ID del lugar",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "description": "Editamos la informacion de un lugar del usuario host",
+                "tags": ["accommodation", "v1"],
+                "responses": {
+                    "200": {
+                        "description": "Editamos exitosamente la informacion de un lugar del usuario host"
+                    },
+                    "400": {
+                        "description": "Generamos un error en caso de que la peticion no se resulva"
+                    }
+                }
+            }
+        },
+        "/api/v1/accommodations/{id}/reservations": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID del lugar",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "description": "Obtiene las reservaciones de ese lugar si eres host",
+                "tags": ["accommodation", "v1"],
+                "responses": {
+                    "200": {
+                        "description": "Obtiene exitosamente las reservaciones de ese lugar si eres host"
+                    },
+                    "400": {
+                        "description": "Generamos un error en caso de que la peticion no se resulva"
+                    }
+                }
+            },
+            "post": {
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID del lugar",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "description": "Creamos una reservacion en ese lugar especifico",
+                "tags": ["accommodation", "v1"],
+                "responses": {
+                    "200": {
+                        "description": "Creamos exitosamente una reservacion en ese lugar especifico"
+                    },
+                    "400": {
+                        "description": "Generamos un error en caso de que la peticion no se resulva"
+                    }
+                }
+            }
+        },
+        "/api/v1/accommodations/{id}/cancel-reservation/{reservationId}": {
+            "delete": {
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID del lugar",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "reservationId",
+                        "in": "path",
+                        "description": "ID de la reservacion",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "description": "Elimina una reservacion asociada al lugar",
+                "tags": ["accommodation", "v1"],
+                "responses": {
+                    "200": {
+                        "description": "Elimina exitosamente una reservacion asociada al lugar"
+                    },
+                    "400": {
+                        "description": "Generamos un error en caso de que la peticion no se resulva"
+                    }
+                }
+            }
+        },
+        "/api/v1/accommodations/{id}/change-score/{reservationId}": {
+            "put": {
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID del lugar",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "reservationId",
+                        "in": "path",
+                        "description": "ID de la reservacion",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "description": "Veririfica si la reservacion finalizo y si es asi modifica el puntaje de el lugar",
+                "tags": ["accommodation", "v1"],
+                "responses": {
+                    "200": {
+                        "description": "Modifica exitosamente el puntaje de el lugar"
+                    },
+                    "400": {
+                        "description": "Generamos un error en caso de que la peticion no se resulva"
+                    }
+                }
+            }
+        },
+        "/api/v1/reservation": {
+            "get": {
+                "description": "Obtiene todas las reservaciones si eres administrador",
+                "tags": ["reservations", "v1"],
+                "responses": {
+                    "200": {
+                        "description": "Obtiene exitosamente las reservaciones de las administradores"
+                    },
+                    "400": {
+                        "description": "Generamos un error en caso de que la peticion no se resulva"
+                    }
+                }
+            }
+        },
+        "/api/v1/reservation/{id}": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID de la reservacion",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "description": "Obtiene una reservacion en especifico",
+                "tags": ["reservations", "v1"],
+                "responses": {
+                    "200": {
+                        "description": "Obtiene exitosamente una reservacion en especifico"
+                    },
+                    "400": {
+                        "description": "Generamos un error en caso de que la peticion no se resulva"
+                    }
+                }
+            }
+        },
+        "/api/v1/auth/login": {
+            "post": {
+                "description": "Verifica las credenciales de usuario en el sistema con las ingresadas por el usuario",
+                "tags": ["auth", "v1"],
+                "responses": {
+                    "200": {
+                        "description": "Verifica exitosamente que los datos ingresados por el usuario corresponden a las que estan en el sistema"
+                    },
+                    "400": {
+                        "description": "Generamos un error en caso de que la peticion no se resulva"
+                    }
+                }
+            }
+        },
+        "/api/v1/auth/register": {
+            "post": {
+                "description": "Crea un nuevo usuario",
+                "tags": ["auth", "v1"],
+                "responses": {
+                    "200": {
+                        "description": "Crea exitosamente un usuario"
+                    },
+                    "400": {
+                        "description": "Generamos un error en caso de que la peticion no se resulva"
+                    }
+                }
+            }
+        }
+    }
+}
