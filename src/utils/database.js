@@ -6,7 +6,7 @@ const db = new Sequelize({
     host: 'localhost',
     username: config.DBusername,
     password: config.DBpassword,
-    database: 'airbnb',
+    database: config.DB,
     post: 5432
 })
 

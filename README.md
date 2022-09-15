@@ -1,3 +1,5 @@
+# 
+
 # Rutas 
 
 - /api/v1/users
@@ -30,9 +32,6 @@
 - /api/v1/auth/register
 - - POST
 
-- /api/v1/auth/passport-recovery
-- - POST
-- - PATCH
 
 # Path de mi usuario a traves de mi aplicacion
 

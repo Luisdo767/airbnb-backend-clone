@@ -5,6 +5,7 @@ module.exports = {
     aplicationState: process.env.NODE_ENV || 'development',
     DBusername: process.env.DB_USER_NAME,
     DBpassword: process.env.DB_PASSWORD,
+    DB: process.env.DB,
     secretOrKey: process.env.SECRET_OR_KEY
 }
 
